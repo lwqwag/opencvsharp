@@ -39,7 +39,7 @@ jobs:
     
       - name: Build libiconv
         run: |
-          wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-${LIBICONV_VERSION}.tar.gz -Olibiconv-${LIBICONV_VERSION}.tar.gz && tar -xzvf libiconv-${LIBICONV_VERSION}.tar.gz
+          wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-${LIBICONV_VERSION}.tar.gz -Olibiconv.tar.gz && tar -xzvf libiconvS.tar.gz
           cd libiconv && ./configure --prefix=/usr/local && make && make install
       - name: Build with Docker
         run: |
