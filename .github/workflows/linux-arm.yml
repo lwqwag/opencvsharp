@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir libiconv
           wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-${LIBICONV_VERSION}.tar.gz -Olibiconv-${LIBICONV_VERSION}.tar.gz && tar -zxvf libiconv-${LIBICONV_VERSION}.tar.gz -C ./libiconv
-          cd libiconv && ls && ./configure --prefix=/usr/local && make && make install
+          cd ./libiconv && ls && ./configure --prefix=/usr/local && make && make install
       - name: Build with Docker
         run: |
           # Override OpenCV version in Dockerfile
