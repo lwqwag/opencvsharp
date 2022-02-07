@@ -13,10 +13,11 @@ file(GLOB OPENCVSHARP_FILES *.cpp)
 
 find_package(OpenCV REQUIRED)
 
-if(NOT CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64.*|AARCH64.*|arm64.*|ARM64.*)")
-     find_package(Iconv REQUIRED)
-endif()
+find_package(Iconv REQUIRED)
 
+if(NOT Iconv_IS_BUILT_IN)
+  set(ICONV_LIB Iconv::Iconv)
+endif()
 
 if(OpenCV_FOUND)
 	include_directories(${OpenCV_INCLUDE_DIRS})
