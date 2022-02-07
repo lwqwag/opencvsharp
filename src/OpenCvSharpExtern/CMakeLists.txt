@@ -31,13 +31,14 @@ if(OpenCV_FOUND)
 		add_library(OpenCvSharpExtern SHARED ${OPENCVSHARP_FILES})
 		target_link_libraries(OpenCvSharpExtern ${OpenCV_LIBRARIES})
 	endif()
-	find_package(Iconv QUIET)
-	if(Iconv_FOUND)
-        	target_link_libraries(OpenCvSharpExtern Iconv::Iconv)
-	else()
-   		target_compile_definitions(OpenCvSharpExtern PRIVATE "NO_ICONV=1")
+	if(CMAKE_VERSION VERSION_GREATER "3.11")
+		find_package(Iconv QUIET)
+		if(Iconv_FOUND)
+        		target_link_libraries(OpenCvSharpExtern Iconv::Iconv)
+		else()
+   			target_compile_definitions(OpenCvSharpExtern PRIVATE "NO_ICONV=1")
+		endif()
 	endif()
-
 	install(TARGETS OpenCvSharpExtern
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
