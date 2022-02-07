@@ -49,7 +49,7 @@ jobs:
             -t opencvsharp-linux-arm:latest \
             --output=type=docker \
             --platform=linux/arm/v7 \
-            --build-arg OPENCV_VERSION \
+            --build-arg OPENCV_VERSION LIBICONV_VERSION \
             ./docker/ubuntu18-dotnetcore3.1-opencv4.5.3
 
       - name: Extract build files from Docker instance
