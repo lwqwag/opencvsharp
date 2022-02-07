@@ -13,14 +13,6 @@ file(GLOB OPENCVSHARP_FILES *.cpp)
 
 find_package(OpenCV REQUIRED)
 
-find_package(Iconv QUIET)
-if(Iconv_FOUND)
-   target_link_libraries(OpenCvSharpExtern Iconv::Iconv)
-else()
-    target_compile_definitions(OpenCvSharpExtern PRIVATE "NO_ICONV=1")
-endif()
-
-
 if(OpenCV_FOUND)
 	include_directories(${OpenCV_INCLUDE_DIRS})
 	#set(LIBS ${LIBS} ${OpenCV_LIBRARIES})
@@ -38,6 +30,12 @@ if(OpenCV_FOUND)
 	else()
 		add_library(OpenCvSharpExtern SHARED ${OPENCVSHARP_FILES})
 		target_link_libraries(OpenCvSharpExtern ${OpenCV_LIBRARIES})
+	endif()
+	find_package(Iconv QUIET)
+	if(Iconv_FOUND)
+        	target_link_libraries(OpenCvSharpExtern Iconv::Iconv)
+	else()
+   		target_compile_definitions(OpenCvSharpExtern PRIVATE "NO_ICONV=1")
 	endif()
 
 	install(TARGETS OpenCvSharpExtern
