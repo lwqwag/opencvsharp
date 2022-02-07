@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir libiconv
           wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-${LIBICONV_VERSION}.tar.gz -Olibiconv-${LIBICONV_VERSION}.tar.gz && tar -zxvf libiconv-${LIBICONV_VERSION}.tar.gz
-          cd libiconv-${LIBICONV_VERSION} && ls && ./configure --target=arm-linux-gnueabihf --prefix=/usr/local --host=arm-linux && sudo make \ find ./ -name '*.so \ make install
+          cd libiconv-${LIBICONV_VERSION} && ls && ./configure --target=arm-linux-gnueabihf --prefix=/usr/local --host=arm-linux && sudo make \ make install
       - name: Build with Docker
         run: |
           # Override OpenCV version in Dockerfile
