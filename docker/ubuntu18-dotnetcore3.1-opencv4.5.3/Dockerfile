@@ -39,7 +39,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 Run wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-${LIBICONV_VERSION}.tar.gz -Olibiconv-${LIBICONV_VERSION}.tar.gz && \
     tar -zxvf libiconv-${LIBICONV_VERSION}.tar.gz && \
     cd libiconv-${LIBICONV_VERSION} && \
-    ./configure --target=arm-linux-gnueabihf --host=arm-linux && \
+    ./configure && \
     make && \
     make install && \
     cd .. && \
