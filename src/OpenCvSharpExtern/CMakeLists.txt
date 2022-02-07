@@ -13,10 +13,7 @@ file(GLOB OPENCVSHARP_FILES *.cpp)
 
 find_package(OpenCV REQUIRED)
 
-IF(NOT ${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
-  find_package(Iconv REQUIRED)
-ENDIF()
-
+find_package(Iconv REQUIRED)
 
 if(OpenCV_FOUND)
 	include_directories(${OpenCV_INCLUDE_DIRS})
