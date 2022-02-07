@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic
 
 ENV DEBIAN_FRONTEND=noninteractive
 ARG OPENCV_VERSION=4.5.3
+ARG LIBICONV_VERSION=1.16
 
 WORKDIR /
 
