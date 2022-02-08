@@ -45,7 +45,7 @@ Run wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-${LIBICONV_VERSION}.tar.g
     make install && \
     cd .. && \
     rm -rf libiconv-${LIBICONV_VERSION} && \
-    export LD_PRELOAD=/usr/local/lib/libiconv.so
+    ldconfig 
 ENV LD_PRELOAD /usr/local/lib/libiconv.so
 
 # Setup opencv and opencv-contrib source
