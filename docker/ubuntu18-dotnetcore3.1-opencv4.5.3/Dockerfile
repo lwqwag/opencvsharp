@@ -17,6 +17,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
       cmake \
       git \
       libtbb-dev \
+      libc6 \
       libatlas-base-dev \
       libgtk2.0-dev \
       libavcodec-dev \
