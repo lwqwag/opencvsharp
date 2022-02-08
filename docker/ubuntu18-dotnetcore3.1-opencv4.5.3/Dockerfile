@@ -36,6 +36,16 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
       libgdiplus \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*
+    
+Run wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-${LIBICONV_VERSION}.tar.gz -Olibiconv-${LIBICONV_VERSION}.tar.gz && \
+    tar -zxvf libiconv-${LIBICONV_VERSION}.tar.gz && \
+    cd libiconv-${LIBICONV_VERSION} && \
+    ./configure && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -rf libiconv-${LIBICONV_VERSION} 
+ENV LD_PRELOAD /usr/local/lib/libiconv.so
 
 # Setup opencv and opencv-contrib source
 RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip && \
