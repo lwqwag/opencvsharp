@@ -9,6 +9,14 @@ IF(APPLE)
     link_directories(/usr/local/lib)
 ENDIF()
 
+if(POLICY CMP0075)
+  cmake_policy(SET CMP0075 NEW)  # CMake 3.12+: Include file check macros honor `CMAKE_REQUIRED_LIBRARIES`
+endif()
+
+if(POLICY CMP0077)
+  cmake_policy(SET CMP0077 NEW)  # CMake 3.13+: option() honors normal variables.
+endif()
+
 file(GLOB OPENCVSHARP_FILES *.cpp)
 
 find_package(OpenCV REQUIRED)
